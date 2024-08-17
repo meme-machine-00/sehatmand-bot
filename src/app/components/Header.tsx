@@ -12,11 +12,6 @@ const Header = () => {
         <nav>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/dashboard" className="text-text-200 hover:text-accent-200">
-                Dashboard
-              </Link>
-            </li>
-            <li>
               <Link href="/assistant" className="text-text-200 hover:text-accent-200">
                 Assistant
               </Link>

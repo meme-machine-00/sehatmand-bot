@@ -1,0 +1,17 @@
+[
+  "Child Health: On average, 65.8% of children have anemia, 33.5% are stunted, and 29.5% are underweight.",
+  "Women's Health: 55.9% of women are anemic, while 23.1% are overweight or obese.",
+  "Diabetes: High blood sugar affects 12.5% of women and 14.7% of men.",
+  "Hypertension: High blood pressure is present in 21.4% of women and 24.8% of men.",
+  "Substance Use: Tobacco use is more prevalent among men (40.6%) than women (11.6%). Similarly, alcohol consumption is higher in men (23.2%) compared to women (2.9%).",
+  "Cancer Screening: Only 1.6% of women have undergone cervical cancer screening, 0.7% have had a breast examination, and 0.7% have had an oral cavity examination.",
+  "Maternal Health: 88.7% of births occur in institutions, indicating good access to professional medical care during childbirth.",
+  "Child Immunization: 77.7% of children are fully vaccinated, which is crucial for preventing various diseases.",
+  "Social Factors: 20.4% of women are married before 18, which can impact health and education outcomes.",
+  "Environmental Factors: 54.1% of households use clean cooking fuel, and 71.9% have access to improved sanitation, both of which are important for overall health.",
+  "Overall, Andaman & Nicobar Islands shows the best health indicators across various factors.",
+  "Nagaland appears to face the most health challenges and may require targeted interventions.",
+  "Child Wasting and Child Underweight have a strong positive correlation (0.72).",
+  "Child Underweight and Women Underweight have a strong positive correlation (0.74).",
+  "Women Overweight and Clean Fuel have a strong positive correlation (0.73)."
+]

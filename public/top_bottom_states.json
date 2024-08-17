@@ -1,0 +1,370 @@
+{
+  "Child Anemia": {
+    "top_5": {
+      "Ladakh": 91.7,
+      "Gujarat": 79.84,
+      "Dadra and Nagar Haveli & Daman and Diu": 73.37,
+      "Jammu & Kashmir": 73.2,
+      "Rajasthan": 72.2
+    },
+    "bottom_5": {
+      "Andaman & Nicobar Islands": 37.17,
+      "Kerala": 38.29,
+      "Meghalaya": 41.95,
+      "Manipur": 41.98,
+      "Nagaland": 42.98
+    }
+  },
+  "Women Anemia": {
+    "top_5": {
+      "Ladakh": 92.75,
+      "West Bengal": 71.53,
+      "Tripura": 67.05,
+      "Jammu & Kashmir": 66.93,
+      "Jharkhand": 66.27
+    },
+    "bottom_5": {
+      " Lakshadweep ": 25.8,
+      "Manipur": 28.73,
+      "Nagaland": 29.21,
+      "Mizoram": 34.1,
+      "Kerala": 35.73
+    }
+  },
+  "Child Stunting": {
+    "top_5": {
+      "Meghalaya": 42.98,
+      "Bihar": 42.59,
+      "Jharkhand": 40.19,
+      "Uttar Pradesh": 39.63,
+      "Gujarat": 38.66
+    },
+    "bottom_5": {
+      "Andaman & Nicobar Islands": 23.23,
+      "Kerala": 23.28,
+      "Manipur": 24.62,
+      "Sikkim": 24.9,
+      "Chandigarh": 25.3
+    }
+  },
+  "Child Wasting": {
+    "top_5": {
+      "Gujarat": 26.14,
+      "Maharastra": 25.8,
+      "Bihar": 24.25,
+      "Jharkhand": 23.11,
+      "Telangana": 22.14
+    },
+    "bottom_5": {
+      "Chandigarh": 8.4,
+      "Manipur": 9.94,
+      "Mizoram": 10.06,
+      "Punjab": 10.81,
+      "Haryana": 11.54
+    }
+  },
+  "Child Underweight": {
+    "top_5": {
+      "Bihar": 41.73,
+      "Jharkhand": 40.4,
+      "Gujarat": 40.33,
+      "Maharastra": 36.44,
+      "Dadra and Nagar Haveli & Daman and Diu": 33.3
+    },
+    "bottom_5": {
+      "Mizoram": 13.29,
+      "Sikkim": 13.7,
+      "Manipur": 13.77,
+      "Arunachal Pradesh": 14.12,
+      "Punjab": 17.66
+    }
+  },
+  "Women Underweight": {
+    "top_5": {
+      "Jharkhand": 26.92,
+      "Gujarat": 26.01,
+      "Bihar": 25.88,
+      "Chhattisgarh": 24.99,
+      "Madhya Pradesh": 23.5
+    },
+    "bottom_5": {
+      "Ladakh": 4.4,
+      "Sikkim": 4.68,
+      "Arunachal Pradesh": 4.81,
+      "Jammu & Kashmir": 5.19,
+      "Mizoram": 5.31
+    }
+  },
+  "Women Overweight": {
+    "top_5": {
+      "Chandigarh": 44.0,
+      "Puducherry": 42.05,
+      "NCT of Delhi": 41.41,
+      "Punjab": 40.26,
+      "Tamil Nadu": 39.36
+    },
+    "bottom_5": {
+      "Jharkhand": 10.6,
+      "Meghalaya": 10.65,
+      "Rajasthan": 11.99,
+      "Chhattisgarh": 12.35,
+      "Nagaland": 12.92
+    }
+  },
+  "High Blood Sugar (W)": {
+    "top_5": {
+      "Kerala": 24.73,
+      "Puducherry": 22.65,
+      "Goa": 20.85,
+      "Tamil Nadu": 20.59,
+      " Lakshadweep ": 19.5
+    },
+    "bottom_5": {
+      "Ladakh": 6.7,
+      "Rajasthan": 7.07,
+      "Arunachal Pradesh": 8.32,
+      "Jammu & Kashmir": 8.36,
+      "Chhattisgarh": 8.81
+    }
+  },
+  "High Blood Sugar (M)": {
+    "top_5": {
+      "Kerala": 26.89,
+      "Puducherry": 24.28,
+      "Goa": 24.05,
+      "Tamil Nadu": 22.32,
+      "Andhra Pradesh": 21.43
+    },
+    "bottom_5": {
+      "Jammu & Kashmir": 7.78,
+      "Ladakh": 8.3,
+      "Rajasthan": 9.03,
+      "Chhattisgarh": 10.51,
+      "Uttar Pradesh": 11.6
+    }
+  },
+  "High BP (W)": {
+    "top_5": {
+      "Sikkim": 36.08,
+      "Kerala": 31.52,
+      "Punjab": 30.88,
+      "Andaman & Nicobar Islands": 28.6,
+      "Goa": 27.5
+    },
+    "bottom_5": {
+      "Rajasthan": 15.19,
+      "Bihar": 15.44,
+      "Ladakh": 15.75,
+      "Mizoram": 16.31,
+      "Dadra and Nagar Haveli & Daman and Diu": 16.6
+    }
+  },
+  "High BP (M)": {
+    "top_5": {
+      "Sikkim": 44.15,
+      "Punjab": 37.26,
+      "Andaman & Nicobar Islands": 35.37,
+      "Arunachal Pradesh": 33.42,
+      "Kerala": 33.09
+    },
+    "bottom_5": {
+      "Dadra and Nagar Haveli & Daman and Diu": 17.03,
+      "Ladakh": 17.4,
+      "Bihar": 17.88,
+      "Rajasthan": 17.88,
+      "Jammu & Kashmir": 18.4
+    }
+  },
+  "Tobacco Use (W)": {
+    "top_5": {
+      "Mizoram": 62.62,
+      "Tripura": 51.22,
+      "Andaman & Nicobar Islands": 43.3,
+      "Manipur": 42.28,
+      "Meghalaya": 27.87
+    },
+    "bottom_5": {
+      "Punjab": 0.36,
+      "Chandigarh": 0.6,
+      "Himachal Pradesh": 1.83,
+      "Puducherry": 2.25,
+      "NCT of Delhi": 2.32
+    }
+  },
+  "Tobacco Use (M)": {
+    "top_5": {
+      "Mizoram": 73.78,
+      "Andaman & Nicobar Islands": 66.03,
+      "Manipur": 60.89,
+      "Meghalaya": 59.27,
+      "Tripura": 57.82
+    },
+    "bottom_5": {
+      "Chandigarh": 12.1,
+      "Punjab": 13.35,
+      "Puducherry": 14.1,
+      "Goa": 18.05,
+      "Kerala": 18.05
+    }
+  },
+  "Alcohol Use (W)": {
+    "top_5": {
+      "Arunachal Pradesh": 23.86,
+      "Sikkim": 18.18,
+      "Andaman & Nicobar Islands": 12.13,
+      "Assam": 9.59,
+      "Chhattisgarh": 8.72
+    },
+    "bottom_5": {
+      "Jammu & Kashmir": 0.23,
+      "Haryana": 0.27,
+      "Puducherry": 0.28,
+      " Lakshadweep ": 0.3,
+      "Chandigarh": 0.3
+    }
+  },
+  "Alcohol Use (M)": {
+    "top_5": {
+      "Arunachal Pradesh": 53.04,
+      "Andaman & Nicobar Islands": 47.53,
+      "Telangana": 45.52,
+      "Sikkim": 42.1,
+      "Chhattisgarh": 37.86
+    },
+    "bottom_5": {
+      " Lakshadweep ": 0.4,
+      "Gujarat": 6.3,
+      "Jammu & Kashmir": 7.7,
+      "Rajasthan": 11.45,
+      "Uttar Pradesh": 14.33
+    }
+  },
+  "Cervical Screen": {
+    "top_5": {
+      "Tamil Nadu": 9.96,
+      "Andaman & Nicobar Islands": 5.47,
+      "Mizoram": 4.96,
+      "Andhra Pradesh": 4.75,
+      "Puducherry": 4.3
+    },
+    "bottom_5": {
+      "Assam": 0.23,
+      "West Bengal": 0.24,
+      "Gujarat": 0.29,
+      "Chhattisgarh": 0.3,
+      "Ladakh": 0.3
+    }
+  },
+  "Breast Exam": {
+    "top_5": {
+      "Tamil Nadu": 5.56,
+      "Andaman & Nicobar Islands": 4.73,
+      "Puducherry": 2.45,
+      "Kerala": 2.44,
+      "Mizoram": 1.62
+    },
+    "bottom_5": {
+      "Chandigarh": 0.0,
+      "Jharkhand": 0.1,
+      "Rajasthan": 0.15,
+      "Uttarakhand": 0.15,
+      "Dadra and Nagar Haveli & Daman and Diu": 0.17
+    }
+  },
+  "Oral Exam": {
+    "top_5": {
+      "Andaman & Nicobar Islands": 9.73,
+      "Andhra Pradesh": 7.02,
+      "Telangana": 2.27,
+      "Puducherry": 1.48,
+      "Tamil Nadu": 1.14
+    },
+    "bottom_5": {
+      "West Bengal": 0.17,
+      "Rajasthan": 0.18,
+      "Jharkhand": 0.19,
+      "Ladakh": 0.2,
+      "Assam": 0.21
+    }
+  },
+  "Institutional Birth": {
+    "top_5": {
+      "Goa": 99.8,
+      "Puducherry": 99.78,
+      "Kerala": 99.7,
+      "Tamil Nadu": 99.65,
+      " Lakshadweep ": 99.6
+    },
+    "bottom_5": {
+      "Nagaland": 43.28,
+      "Meghalaya": 62.84,
+      "Manipur": 71.24,
+      "Jharkhand": 76.18,
+      "Bihar": 77.84
+    }
+  },
+  "Full Vaccination": {
+    "top_5": {
+      "Odisha": 91.77,
+      "Sikkim": 91.37,
+      "Dadra and Nagar Haveli & Daman and Diu": 90.4,
+      "Tamil Nadu": 89.32,
+      "Himachal Pradesh": 88.37
+    },
+    "bottom_5": {
+      "Nagaland": 59.11,
+      "Manipur": 64.81,
+      "Arunachal Pradesh": 66.48,
+      "Assam": 66.8,
+      "Tripura": 67.08
+    }
+  },
+  "Early Marriage": {
+    "top_5": {
+      "Bihar": 41.07,
+      "Tripura": 39.67,
+      "West Bengal": 39.37,
+      "Jharkhand": 32.35,
+      "Assam": 30.51
+    },
+    "bottom_5": {
+      " Lakshadweep ": 1.3,
+      "Ladakh": 2.5,
+      "Jammu & Kashmir": 4.8,
+      "Kerala": 5.46,
+      "Goa": 5.7
+    }
+  },
+  "Clean Fuel": {
+    "top_5": {
+      "NCT of Delhi": 98.91,
+      "Goa": 96.45,
+      "Chandigarh": 95.8,
+      "Puducherry": 91.42,
+      "Telangana": 90.37
+    },
+    "bottom_5": {
+      "Meghalaya": 26.65,
+      "Jharkhand": 28.04,
+      "Chhattisgarh": 28.28,
+      "Odisha": 32.34,
+      "Nagaland": 33.49
+    }
+  },
+  "Improved Sanitation": {
+    "top_5": {
+      " Lakshadweep ": 99.8,
+      "Kerala": 98.6,
+      "Mizoram": 94.15,
+      "Nagaland": 88.2,
+      "Puducherry": 88.2
+    },
+    "bottom_5": {
+      "Ladakh": 42.35,
+      "Bihar": 49.47,
+      "Jharkhand": 55.31,
+      "Odisha": 59.65,
+      "Madhya Pradesh": 64.17
+    }
+  }
+}
