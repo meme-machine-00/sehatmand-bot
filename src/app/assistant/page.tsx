@@ -8,6 +8,7 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
+import Image from "next/image";
 
 
 const getTextFromDataUrl = (dataUrl: string) => {
@@ -36,7 +37,7 @@ function TextFilePreview({ file }: { file: File }) {
 }
 
 export default function Assistant() {
-  const { messages, input, handleSubmit, handleInputChange, isLoading, reload } =
+  const { messages, setMessages ,input, handleSubmit, handleInputChange, isLoading, reload } =
     useChat({
       onError: () =>
         toast.error("You've been rate limited, please try again later!"),
@@ -46,6 +47,10 @@ export default function Assistant() {
   const inputRef = useRef<HTMLInputElement>(null);
   const fileInputRef = useRef(null) as any;
   const [isDragging, setIsDragging] = useState(false);
+
+  const clearChat = () => {
+    setMessages([]);
+  }
 
   const handlePaste = (event: React.ClipboardEvent) => {
     const items = event.clipboardData?.items;
@@ -141,7 +146,7 @@ export default function Assistant() {
 
   return (
     <div
-      className="flex flex-row justify-center w-full h-[calc(100vh-64px)] bg-white dark:bg-zinc-900"
+      className="flex flex-row justify-center w-full h-[calc(100vh-72px)] bg-white"
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
@@ -149,13 +154,13 @@ export default function Assistant() {
       <AnimatePresence>
         {isDragging && (
           <motion.div
-            className="fixed pointer-events-none dark:bg-zinc-900/90 z-10 justify-center items-center flex flex-col gap-1 bg-zinc-100/90"
+            className="fixed pointer-events-none z-10 justify-center items-center flex flex-col gap-1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <div>Drag and drop files here</div>
-            <div className="text-sm dark:text-zinc-400 text-zinc-500">
+            <div className="text-sm text-text-200">
               {"(images and text)"}
             </div>
           </motion.div>
@@ -173,25 +178,25 @@ export default function Assistant() {
                 initial={{ y: 5, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
               >
-                <div className="size-[24px] flex flex-col justify-center items-center flex-shrink-0 text-zinc-400">
+                <div className="size-[24px] flex flex-col justify-center items-center flex-shrink-0 text-text-100">
                   {message.role === "assistant" ? <BotIcon /> : <UserIcon />}
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <div className="text-zinc-800 dark:text-zinc-300 flex flex-col gap-4">
+                  <div className="text-zinc-800 flex flex-col gap-4">
                     <Markdown>{message.content}</Markdown>
                   </div>
                   <div className="flex flex-row gap-2">
                     {message.experimental_attachments?.map((attachment) =>
                       attachment.contentType?.startsWith("image") ? (
-                        <img
+                        <Image
                           className="rounded-md w-40 mb-3"
                           key={attachment.name}
                           src={attachment.url}
-                          alt={attachment.name}
+                          alt={attachment.name!}
                         />
                       ) : attachment.contentType?.startsWith("text") ? (
-                        <div className="text-xs w-40 h-24 overflow-hidden text-zinc-400 border p-2 rounded-md dark:bg-zinc-800 dark:border-zinc-700 mb-3">
+                        <div className="text-xs w-40 h-24 overflow-hidden text-text-200 border p-2 rounded-md mb-3">
                           {getTextFromDataUrl(attachment.url)}
                         </div>
                       ) : null
@@ -204,7 +209,7 @@ export default function Assistant() {
             {isLoading &&
               messages[messages.length - 1].role !== "assistant" && (
                 <div className="flex flex-row gap-2 px-8 w-full">
-                  <div className="size-[24px] flex flex-col justify-center items-center flex-shrink-0 text-zinc-400">
+                  <div className="size-[24px] flex flex-col justify-center items-center flex-shrink-0 text-text-200">
                     <BotIcon />
                   </div>
                   <div className="flex flex-col gap-1 text-zinc-400">
@@ -219,8 +224,8 @@ export default function Assistant() {
           </div>
         ) : (
           <motion.div className="h-[350px] px-4 w-[80%] sm:w-[70%] md:w-[600px] self-center md:px-0 pt-20">
-            <div className="border rounded-lg p-6 flex flex-col gap-4 text-zinc-500 text-sm dark:text-zinc-400 dark:border-zinc-700">
-              <p className="flex flex-row justify-center gap-4 items-center text-zinc-900 dark:text-zinc-50">
+            <div className="border-accent-200 rounded-lg p-6 flex flex-col gap-4 text-text-200 text-sm">
+              <p className="flex flex-row justify-center gap-4 items-center text-text-200">
                 <BotIcon />
                 <span>+</span>
                 <AttachmentIcon />
@@ -265,7 +270,7 @@ export default function Assistant() {
                   ) : file.type.startsWith("text") ? (
                     <motion.div
                       key={file.name}
-                      className="text-[8px] leading-1 w-28 h-16 overflow-hidden text-zinc-500 border p-2 rounded-lg bg-white dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-400"
+                      className="text-[8px] leading-1 w-28 h-16 overflow-hidden text-zinc-500 border p-2 rounded-lg bg-white"
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       exit={{
@@ -295,7 +300,7 @@ export default function Assistant() {
             <button
               type="button"
               onClick={handleImageClick}
-              className="px-3 py-2 bg-primary-200 text-text-100 rounded-lg hover:bg-primary-300 transition-colors"
+              className="px-3 py-2 bg-primary-200 text-text-100 rounded-lg hover:bg-accent-200 hover:text-cyan-50 transition-colors cursor-pointer"
               aria-label="Upload image"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -305,19 +310,29 @@ export default function Assistant() {
 
             <input
               ref={inputRef}
-              className="bg-zinc-100 rounded-md px-2 py-1.5 w-full outline-none dark:bg-zinc-700 text-zinc-800 dark:text-zinc-300 md:w-full"
+              className="bg-primary-100 rounded-md px-2 py-1.5 w-full outline-none text-text-200 md:w-full"
               placeholder="How can I help you ?"
               value={input}
               onChange={handleInputChange}
               onPaste={handlePaste}
             />
 
+<button
+              className={`px-3 py-2 bg-primary-200 text-text-100 rounded-lg hover:bg-accent-200 hover:text-cyan-50 transition-colors cursor-pointer`}
+              onClick={() => clearChat()}
+              hidden={messages.length === 0}
+            >
+              Clear
+            </button>
+
             <button
-              className={`px-4 py-2 bg-primary-300 text-bg-100 rounded-lg transition-colors cursor-pointer`}
+              className={`px-3 py-2 bg-primary-200 text-text-100 rounded-lg hover:bg-accent-200 hover:text-cyan-50 transition-colors cursor-pointer`}
+              hidden={messages.length === 0}
               onClick={() => reload()}
             >
               Retry
             </button>
+
           </div>
 
         </form>
@@ -413,13 +428,13 @@ export const NonMemoizedMarkdown = ({ children }: { children: string }) => {
       return !inline && match ? (
         <pre
           {...props}
-          className={`${className} text-sm w-[80dvw] md:max-w-[500px] bg-zinc-100 p-2 rounded mt-2 dark:bg-zinc-800`}
+          className={`${className} text-sm w-[80dvw] md:max-w-[500px] bg-zinc-100 p-2 rounded mt-2`}
         >
           <code className={match[1]}>{children}</code>
         </pre>
       ) : (
         <code
-          className={`${className} text-sm bg-zinc-100 dark:bg-zinc-800 py-0.5 px-1 rounded`}
+          className={`${className} text-sm bg-zinc-100 py-0.5 px-1 rounded`}
           {...props}
         >
           {children}

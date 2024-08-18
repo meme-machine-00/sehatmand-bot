@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 import { ResponsiveLine } from '@nivo/line';
+import { ResponsiveHeatMap } from '@nivo/heatmap';
 
 import InsightsGrid from '@/src/app/components/InsightsGrid';
 import NationalHealthAveragesChart from '@/src/app/components/NationalHealthAveragesChart';
@@ -31,26 +32,40 @@ const HealthDashboard: React.FC = () => {
   const [topBottomStates, setTopBottomStates] = useState<TopBottomStates | null>(null);
   const [stateData, setStateData] = useState<StateData | null>(null);
   const [insights, setInsights] = useState<string[] | null>(null);
+  const [correlationData, setCorrelationData] = useState<any[] | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const [averagesResponse, topBottomResponse, stateResponse, insightsResponse] = await Promise.all([
+      const [averagesResponse, topBottomResponse, stateResponse, insightsResponse, correlationResponse] = await Promise.all([
         fetch('/national_health_averages.json'),
         fetch('/top_bottom_states.json'),
         fetch('/state_health_averages.json'),
-        fetch('/health_insights.json')
+        fetch('/health_insights.json'),
+        fetch('/health_correlations.json')
       ]);
 
       setNationalAverages(await averagesResponse.json());
       setTopBottomStates(await topBottomResponse.json());
       setStateData(await stateResponse.json());
       setInsights(await insightsResponse.json());
+
+      const correlations = await correlationResponse.json();
+      const formattedCorrelations = Object.entries(correlations).map(([key, value]: [string, any]) => ({
+        id: key,
+        data: Object.entries(value).map(([subKey, subValue]: [any, any]) => {
+          return {
+            x: subKey,
+            y: subValue
+          }
+        })
+      }));
+      setCorrelationData(formattedCorrelations);
     };
 
     fetchData();
   }, []);
 
-  if (!nationalAverages || !topBottomStates || !stateData || !insights) {
+  if (!nationalAverages || !topBottomStates || !stateData || !insights || !correlationData) {
     // return <div className="flex justify-center items-center h-screen">Loading...</div>;
     return (
       <div className="flex justify-center items-center h-screen">
@@ -89,6 +104,67 @@ const HealthDashboard: React.FC = () => {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
+
+      <div className="bg-white p-6 rounded-lg shadow">
+          <h2 className="text-xl text-accent-200 font-semibold mb-4">Health Indicators Correlation Heatmap</h2>
+          <div className="h-[600px]">
+            <ResponsiveHeatMap
+              data={correlationData}
+              margin={{ top: 60, right: 90, bottom: 60, left: 90 }}
+              valueFormat=">-.2f"
+              axisTop={{
+                tickSize: 5,
+                tickPadding: 5,
+                tickRotation: -90,
+                legend: '',
+                legendOffset: 46
+              }}
+              axisRight={{
+                tickSize: 5,
+                tickPadding: 5,
+                tickRotation: 0,
+                legend: 'Health Indicators',
+                legendPosition: 'middle',
+                legendOffset: 70
+              }}
+              axisLeft={{
+                tickSize: 5,
+                tickPadding: 5,
+                tickRotation: 0,
+                legend: 'Health Indicators',
+                legendPosition: 'middle',
+                legendOffset: -72
+              }}
+              colors={{
+                type: 'diverging',
+                scheme: 'red_yellow_blue',
+                divergeAt: 0.5,
+                minValue: -1,
+                maxValue: 1
+              }}
+              emptyColor="#555555"
+              legends={[
+                {
+                  anchor: 'bottom',
+                  translateX: 0,
+                  translateY: 30,
+                  length: 400,
+                  thickness: 8,
+                  direction: 'row',
+                  tickPosition: 'after',
+                  tickSize: 3,
+                  tickSpacing: 4,
+                  tickOverlap: false,
+                  tickFormat: '>-.2f',
+                  title: 'Correlation →',
+                  titleAlign: 'start',
+                  titleOffset: 4
+                }
+              ]}
+            />
+          </div>
+        </div>
+
         <div className="bg-white p-6 rounded-lg shadow">
           <NationalHealthAveragesChart />
         </div>
