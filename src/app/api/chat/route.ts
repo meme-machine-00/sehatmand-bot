@@ -1,5 +1,5 @@
 import { createAnthropic } from '@ai-sdk/anthropic';
-import { createGoogleGenerativeAI } from '@ai-sdk/google';
+import { createGoogleGenerativeAI  } from '@ai-sdk/google';
 import { convertToCoreMessages, streamText } from "ai";
 import { medicalSystemAssistPrompt } from './prompts';
 
@@ -46,11 +46,11 @@ export async function POST(req: Request) {
 
   const result = await streamText({
     model: model,
-    system: medicalSystemAssistPrompt,
     messages: convertToCoreMessages(messages),
-    temperature: 1,
+    temperature: 0.5,
     topK: 0,
-    topP: 0.95
+    topP: 0.95,
+    system: medicalSystemAssistPrompt
   });
 
 

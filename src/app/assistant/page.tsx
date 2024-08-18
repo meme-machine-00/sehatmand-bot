@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import Link from "next/link";
 
 
 const getTextFromDataUrl = (dataUrl: string) => {
@@ -35,7 +36,7 @@ function TextFilePreview({ file }: { file: File }) {
 }
 
 export default function Assistant() {
-  const { messages, input, handleSubmit, handleInputChange, isLoading } =
+  const { messages, input, handleSubmit, handleInputChange, isLoading, reload } =
     useChat({
       onError: () =>
         toast.error("You've been rate limited, please try again later!"),
@@ -161,9 +162,9 @@ export default function Assistant() {
         )}
       </AnimatePresence>
 
-      <div className="flex flex-col justify-between items-stretch gap-4 w-full">
-        {(
-          <div className="flex flex-col gap-2 h-full items-center overflow-y-scroll">
+      <div className="flex flex-col justify-between w-full">
+        {messages.length > 0 ? (
+          <div className="flex flex-col gap-6 h-full items-center overflow-y-scroll">
             {messages.map((message, index) => (
               <motion.div
                 key={message.id}
@@ -207,18 +208,34 @@ export default function Assistant() {
                     <BotIcon />
                   </div>
                   <div className="flex flex-col gap-1 text-zinc-400">
-                    <div>Thinking...</div>
+                    <div className="flex flex-row gap-4 items-center">
+                      <span>Thinking...</span>
+                    </div>
                   </div>
                 </div>
               )}
 
             <div ref={messagesEndRef} />
           </div>
+        ) : (
+          <motion.div className="h-[350px] px-4 w-[80%] sm:w-[70%] md:w-[600px] self-center md:px-0 pt-20">
+            <div className="border rounded-lg p-6 flex flex-col gap-4 text-zinc-500 text-sm dark:text-zinc-400 dark:border-zinc-700">
+              <p className="flex flex-row justify-center gap-4 items-center text-zinc-900 dark:text-zinc-50">
+                <BotIcon />
+                <span>+</span>
+                <AttachmentIcon />
+              </p>
+              <p>Hey there, feel free to ask me anything about medical reports, medicine, health.</p>
+              <p>You can upload the screenshot of the medical scans like ECG, X-Ray, MRI, medical reports like CBC, Lipid Profile.</p>
+              <p>Please upload the relevant part of medical scan either by clicking picture or screenshot for more accurate results.</p>
+              <p>Do not share your personal information. </p>
+            </div>
+          </motion.div>
         )}
 
 
         <form
-          className="flex flex-col gap-2 relative items-center w-full"
+          className="flex flex-col relative items-center w-full mb-4"
           onSubmit={(event) => {
             const options = files ? { experimental_attachments: files } : {};
             handleSubmit(event, options);
@@ -289,18 +306,25 @@ export default function Assistant() {
             <input
               ref={inputRef}
               className="bg-zinc-100 rounded-md px-2 py-1.5 w-full outline-none dark:bg-zinc-700 text-zinc-800 dark:text-zinc-300 md:w-full"
-              placeholder="Send a message..."
+              placeholder="How can I help you ?"
               value={input}
               onChange={handleInputChange}
               onPaste={handlePaste}
             />
+
+            <button
+              className={`px-4 py-2 bg-primary-300 text-bg-100 rounded-lg transition-colors cursor-pointer`}
+              onClick={() => reload()}
+            >
+              Retry
+            </button>
           </div>
 
         </form>
 
-        <p className="text-sm text-white italic text-right px-3">Disclaimer: Please confirm the information with legitimate sources.</p>
       </div>
     </div>
+
   );
 }
 
@@ -363,19 +387,18 @@ const AttachmentIcon = () => {
   );
 };
 
-const VercelIcon = () => {
+const CloseIcon = () => {
   return (
     <svg
       height={17}
-      strokeLinejoin="round"
-      viewBox="0 0 16 16"
       width={17}
+      viewBox="0 0 16 16"
       style={{ color: "currentcolor" }}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M8 1L16 15H0L8 1Z"
+        d="M13.41 4.41L12 3L8 7L4 3L2.59 4.41L6.59 8L2.59 11.59L4 13L8 9L12 13L13.41 11.59L9.41 8L13.41 4.41Z"
         fill="currentColor"
       ></path>
     </svg>
