@@ -9,6 +9,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
 import Image from "next/image";
+import { Markdown } from "../components/Markdown";
 
 
 const getTextFromDataUrl = (dataUrl: string) => {
@@ -189,7 +190,7 @@ export default function Assistant() {
                   <div className="flex flex-row gap-2">
                     {message.experimental_attachments?.map((attachment) =>
                       attachment.contentType?.startsWith("image") ? (
-                        <Image
+                        <img
                           className="rounded-md w-40 mb-3"
                           key={attachment.name}
                           src={attachment.url}
@@ -421,57 +422,4 @@ const CloseIcon = () => {
 };
 
 
-export const NonMemoizedMarkdown = ({ children }: { children: string }) => {
-  const components = {
-    code: ({ node, inline, className, children, ...props }: any) => {
-      const match = /language-(\w+)/.exec(className || "");
-      return !inline && match ? (
-        <pre
-          {...props}
-          className={`${className} text-sm w-[80dvw] md:max-w-[500px] bg-zinc-100 p-2 rounded mt-2`}
-        >
-          <code className={match[1]}>{children}</code>
-        </pre>
-      ) : (
-        <code
-          className={`${className} text-sm bg-zinc-100 py-0.5 px-1 rounded`}
-          {...props}
-        >
-          {children}
-        </code>
-      );
-    },
-    ol: ({ node, children, ...props }: any) => {
-      return (
-        <ol className="list-decimal list-inside ml-4" {...props}>
-          {children}
-        </ol>
-      );
-    },
-    li: ({ node, children, ...props }: any) => {
-      return (
-        <li className="py-1" {...props}>
-          {children}
-        </li>
-      );
-    },
-    ul: ({ node, children, ...props }: any) => {
-      return (
-        <ul className="list-decimal list-inside ml-4" {...props}>
-          {children}
-        </ul>
-      );
-    },
-  };
 
-  return (
-    <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
-      {children}
-    </ReactMarkdown>
-  );
-};
-
-export const Markdown = React.memo(
-  NonMemoizedMarkdown,
-  (prevProps, nextProps) => prevProps.children === nextProps.children
-);
