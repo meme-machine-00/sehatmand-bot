@@ -232,7 +232,7 @@ export default function Assistant() {
                 <AttachmentIcon />
               </p>
               <p>Hey there, feel free to ask me anything about medical reports, medicine, health.</p>
-              <p>You can upload the screenshot of the medical scans like ECG, X-Ray, MRI, medical reports like CBC, Lipid Profile.</p>
+              <p>You can upload the screenshot of the medical scans like ECG, X-Ray, MRI, medical reports like CBC, Lipid Profile and also the images of affected body parts.</p>
               <p>Please upload the relevant part of medical scan either by clicking picture or screenshot for more accurate results.</p>
               <p>Do not share your personal information. </p>
             </div>
